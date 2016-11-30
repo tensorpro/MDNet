@@ -219,3 +219,7 @@ def batch_generator(roidb, batchsize=128, minisize=8, posprob=1 / 3, show=False)
         
 
 to_load = [('vot2013','vot13-otb.txt'),('vot2014','vot14-otb.txt')]
+
+if __name__=='__main__':
+    download_vot()
+    unzip_files("../Data")
