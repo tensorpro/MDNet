@@ -1,5 +1,5 @@
 from keras import backend as K
-
+import os
 from keras.applications.vgg16 import VGG16
 from keras.preprocessing import image
 from keras.applications.vgg16 import preprocess_input
@@ -58,5 +58,14 @@ for _ in range(iters):
         m.fit(X,Y, nb_epoch=1, verbose=0)
         # Will probably use fit_generator (https://keras.io/models/model/#methods) in the actual thing
 
+##########################################################
+# Save model
+model_dir = '../Models'
+if not os.path.exists(model_dir):
+    os.makedirs(model_dir)
+m.save(join(model_dir, 'mdnet.hd5'))
+
+# Saves the model for one of the branches
+
 print("Training complete!")
-##########################################################        
+##########################################################
